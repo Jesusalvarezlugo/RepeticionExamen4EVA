@@ -10,6 +10,20 @@ namespace RepeticionExamen4EVA.Servicios
 {
     internal class FicheroImplementacion:FicheroInterfaz
     {
+        
+
+        public void escribirEnFichero(string ruta)
+        {
+            StreamWriter sw = new StreamWriter(ruta);
+
+            foreach (CitaDto cita in Program.listaCitas)
+            {
+                sw.WriteLine(String.Concat("Nombre completo: ", cita.NombrePaciente, " ", cita.ApellidosPaciente, " Hora: ", cita.FechaCita.Hour));
+            }
+
+            sw.Close();
+        }
+
         public void escribirFicheroLog(string texto)
         {
             try
@@ -20,7 +34,7 @@ namespace RepeticionExamen4EVA.Servicios
 
                 sw.Close();
             }
-            catch (IOException)
+            catch (IOException e)
             {
                 Console.WriteLine("Error al escribir en el fichero");
             }
@@ -31,7 +45,7 @@ namespace RepeticionExamen4EVA.Servicios
         {
             try
             {
-                string[] lineas = File.ReadAllLines("cita.txt");
+                string[] lineas = File.ReadAllLines("citas.txt");
 
                 foreach (string linea in lineas)
                 {
@@ -45,14 +59,11 @@ namespace RepeticionExamen4EVA.Servicios
                     cita1.Asistencia = Convert.ToBoolean(cita[5]);
                     Program.listaCitas.Add(cita1);
                 }
-
-
-                    
-                
+            
             }
             catch(IOException)
             {
-
+                escribirFicheroLog("Error al leer las listas.");
             }
             
         }

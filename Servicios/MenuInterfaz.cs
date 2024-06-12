@@ -8,5 +8,10 @@ namespace RepeticionExamen4EVA.Servicios
 {
     internal interface MenuInterfaz
     {
+        public int mostrarMenuYSeleccionPrin();
+
+        public int mostrarMenuYSeleccionList();
+
+        public int mostrarMenuYSeleccionEsp();
     }
 }

@@ -8,5 +8,10 @@ namespace RepeticionExamen4EVA.Servicios
 {
     internal interface OperativaInterfaz
     {
+        public void registroDeLlegada();
+
+        public void menuListados();
+
+        
     }
 }

@@ -11,5 +11,9 @@ namespace RepeticionExamen4EVA.Servicios
         public void escribirFicheroLog(string texto);
 
         public void leerFicheros();
+
+        
+
+        public void escribirEnFichero(string ruta);
     }
 }
